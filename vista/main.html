@@ -20,19 +20,98 @@
         <li style="float:right"><a href="#carrito">Carrito</a></li>
     </ul>
     <div style="padding: 30px;margin-top:30px;background-color:#1abc9c;height:1500px;">
-    <section class="contenido">
-        <div class="mostrador" id="mostrador">
-            <div class="fila">
-             <div class="item">
-                <div class="contenedor-foto">
-                    <img src="../img/comida-perro.jpg" alt="">
-                    <p class="descripcion">Nike Model 1</p>
-                    <span class="precio">$ 1.300</span>
+        <section class="contenido">
+            <div class="mostrador" id="mostrador">
+                <div class="fila">
+                    <div class="item" onclick="cargar(this)">
+                        <div class="contenedor-foto">
+                            <img src="../img/comida-perro.jpg" alt="">
+                        </div>
+                        <p class="descripcion">NIKE AIR 97</p>
+                        <span class="precio">$ 1.300</span>
+                    </div>
+                    <div class="item" onclick="cargar(this)">
+                        <div class="contenedor-foto">
+                            <img src="../img/comida-perro2.jpg" alt="">
+                        </div>
+                        <p class="descripcion" id>NIKE RUNNING TERRA </p>
+                        <span class="precio">$ 1.800</span>
+                    </div>
+                    <div class="item" onclick="cargar(this)">
+                        <div class="contenedor-foto">
+                            <img src="../img/comida-gato.jpg" alt="">
+                        </div>
+                        <p class="descripcion">NIKE WINFLO 8
+                        </p>
+                        <span class="precio">$ 3.600</span>
+                    </div>
+                    <div class="item" onclick="cargar(this)">
+                        <div class="contenedor-foto">
+                            <img src="../img/comida-gato2.jpg" alt="">
+                        </div>
+                        <p class="descripcion">NIKE LOW-TOP</p>
+                        <span class="precio">$ 1.800</span>
+                    </div>
                 </div>
-             </div>   
+                <div class="fila">
+                    <div class="item" onclick="cargar(this)">
+                        <div class="contenedor-foto">
+                            <img src="../img/comida-perro3.jpg" alt="">
+                        </div>
+                        <p class="descripcion">NIKE BLAZER 97</p>
+                        <span class="precio">$ 130</span>
+                    </div>
+                    <div class="item" onclick="cargar(this)">
+                        <div class="contenedor-foto">
+                            <img src="../img/comida-gato3.jpg" alt="">
+                        </div>
+                        <p class="descripcion">NIKE LEGEND ESENTIAL</p>
+                        <span class="precio">$ 2.000</span>
+                    </div>
+                    <div class="item" onclick="cargar(this)">
+                        <div class="contenedor-foto">
+                            <img src="../img/comida-perro4.jpg" alt="">
+                        </div>
+                        <p class="descripcion">NIKE AIR ZOOM</p>
+                        <span class="precio">$ 2.500</span>
+                    </div>
+                    <div class="item" onclick="cargar(this)">
+                        <div class="contenedor-foto">
+                            <img src="../img/comida-gato4.jpg" alt="">
+                        </div>
+                        <p class="descripcion">NIKE TERRA KING</p>
+                        <span class="precio">$ 1.800</span>
+                    </div>
+                </div> 
             </div>
-        </div>
-    </section>
-    </div> 
+            <!-- CONTENEDOR DEL ITEM SELECCIONADO -->
+            <div class="seleccion" id="seleccion">
+                <div class="cerrar" onclick="cerrar()">
+                    &#x2715
+                </div>
+                <div class="info">
+                    <img src="../img/comida-perro.jpg" alt="" id="img">
+                    <h2 id="modelo">NIKE MODEL 1</h2>
+                    <p id="descripcion">Descripción Modelo 1</p>
+    
+                    <span class="precio" id="precio">$ 130</span>
+    
+                    <div class="fila">
+                        <div class="size">
+                            <label for="">SIZE</label>
+                            <select name="" id="">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                            </select>
+                        </div>
+                        <button>AGREGAR AL CARRITO</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <script src="../script/script.js"></script>
 </html>
 </body>

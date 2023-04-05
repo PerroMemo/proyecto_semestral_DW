@@ -22,12 +22,15 @@
             
     </div>    
         <ul>
+            <li><a href="/vista/main.html">Pagina principal</a></li>
             <li><a href="#Perro">Perro</a></li>
             <li><a href="#Gato">Gato</a></li>
             <li><a href="#PequeñasMascotitas">Pequeñas Mascotitas</a></li>
             <li><a href="#SuperOfertas">Super Ofertas</a></li>
             <li style="float:right"><a href="/vista/registro.html">Registro</a></li>
+            <li style="float:right"><a href="/vista/login.html">Ingreso</a></li>
             <li style="float:right"><a href="#carrito">Carrito</a></li>
+            
         </ul>
         
         <section class="vh-100 gradient-custom">
@@ -37,13 +40,13 @@
                   <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
                       <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registro</h3>
-                      <form>
+                      <form action="action_page.php" method="POST">
           
                         <div class="row">
                           <div class="col-md-6 mb-4">
           
                             <div class="form-outline">
-                              <input type="text" id="firstName" class="form-control form-control-lg" />
+                              <input type="text" id="firstName" class="form-control form-control-lg" required />
                               <label class="form-label" for="firstName">Primer Nombre</label>
                             </div>
           
@@ -51,62 +54,35 @@
                           <div class="col-md-6 mb-4">
           
                             <div class="form-outline">
-                              <input type="text" id="lastName" class="form-control form-control-lg" />
+                              <input type="text" id="lastName" class="form-control form-control-lg" required />
                               <label class="form-label" for="lastName">Segundo Nombre</label>
                             </div>
           
                           </div>
                         </div>
           
-                        <div class="row">
-                          <div class="col-md-6 mb-4 d-flex align-items-center">
-          
-                            <div class="form-outline datepicker w-100">
-                              <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                              <label for="birthdayDate" class="form-label">Fecha de nacimiento</label>
-                            </div>
-          
-                          </div>
-                          <div class="col-md-6 mb-4">
-          
-                            <h6 class="mb-2 pb-1">Genero: </h6>
-          
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                                value="option1" checked />
-                              <label class="form-check-label" for="femaleGender">Femenino</label>
-                            </div>
-          
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                                value="option2" />
-                              <label class="form-check-label" for="maleGender">Masculino</label>
-                            </div>
-          
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                                value="option3" />
-                              <label class="form-check-label" for="otherGender">Otro</label>
-                            </div>
-          
-                          </div>
-                        </div>
           
                         <div class="row">
                           <div class="col-md-6 mb-4 pb-2">
           
                             <div class="form-outline">
-                              <input type="email" id="emailAddress" class="form-control form-control-lg" />
+                              <input type="email" id="emailAddress" class="form-control form-control-lg" required/>
                               <label class="form-label" for="emailAddress">Email</label>
                             </div>
           
+                            <div class="form-outline">
+                              <input type="number" id="phoneNumber" class="form-control form-control-lg" required/>
+                              <label class="form-label" for="phoneNumber">Numero telefonico</label>
+                            </div>
                           </div>
                           <div class="col-md-6 mb-4 pb-2">
           
                             <div class="form-outline">
-                              <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                              <label class="form-label" for="phoneNumber">Numero telefonico</label>
+                              <input type="password" id="emailAddress" class="form-control form-control-lg" required/>
+                              <label class="form-label" for="emailAddress">Constraseña</label>
                             </div>
+
+                            
           
                           </div>
                         </div>

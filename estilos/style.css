@@ -341,3 +341,27 @@ button {
   border: none;
   border-radius: 4px;
 }
+
+label, input {
+  display: inline-block;
+  margin-bottom: 10px;
+  vertical-align: top;
+}
+
+label {
+  width: 120px;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+}
+
+input[type="submit"] {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}

@@ -7,37 +7,75 @@
     <title>Pagina principal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../estilos/style.css">
-
-</head>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="../script/script.js"></script>
+  </head>
 <body>
+
 <!-- Titulo-->
 <div  class="container-fluid">
-        <img class="icon" src="/IMG/Diseño sin título.png" alt="#">
+        <img class="icon" src="../IMG/Diseño sin título.png" alt="#">
         <span class="titulo">Todo para tu mascota</span>
         
 </div>    
     <ul>
-            <li><a href="/vista/main.html">Pagina principal</a></li>
+            <li><a href="../vista/main.html">Pagina principal</a></li>
             <li><a href="#Perro">Perro</a></li>
             <li><a href="#Gato">Gato</a></li>
-            <li><a href="#PequeñasMascotitas">Pequeñas Mascotitas</a></li>
-            <li><a href="#SuperOfertas">Super Ofertas</a></li>
-            <li style="float:right"><a href="/vista/registro.html">Registro</a></li>
-            <li style="float:right"><a href="/vista/login.html">Ingreso</a></li>
-            <li style="float:right"><a href="#carrito">Carrito</a></li>
+            <li><a id="donar" href="#">Donativos</a></li>
+            <li><a id="oferta" href="#">Super Ofertas</a></li>
+            <li style="float:right"><a href="../vista/registro.html">Registro</a></li>
+            <li style="float:right"><a href="../vista/login.html">Ingreso</a></li>
+            <li style="float:right"><a href="../vista/carrito.html">Carrito</a></li>
     </ul>
+    <!-- Modales -->
+    <div id="modal1" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Redirección a otra pagina</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Sera redirigido a la pagina de donaciones ¿Estas seguro de que quiere salir?</p>
+            </div>
+            <div class="modal-footer">
+              <button id="ir" type="button" class="btn btn-primary">Ir</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Quedarse</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal2" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Perro sorpresa</h5>
+             
+            </div>
+            <div class="modal-body">
+              <img class="img-fluid perro_sorpresa" src="/img/perro.jpg" alt="#">
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!--Carrusel-->    
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="/IMG/black-extension-tkpet-desktop.jpg" class="d-block w-100" alt="...">
+            <img id="carr1" src="../IMG/black-extension-tkpet-desktop.jpg" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="/IMG/black-extension-zeedog-kong-desktop.jpg" class="d-block w-100" alt="...">
+            <img src="../IMG/black-extension-zeedog-kong-desktop.jpg" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="/IMG/p-bomba-desktop.jpg" class="d-block w-100" alt="...">
+            <img src="../IMG/p-bomba-desktop.jpg" class="d-block w-100" alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -52,72 +90,106 @@
       
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <br>
+    <!-- Filtro de objetos -->
+    <div class="accordion" id="accordion">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Filtros
+            </button>
+          </h5>
+        </div>
     
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <input type="radio" id="todos" name="ocultar" value="ocultarNada">
+            <label for="html">Todos</label><br>
+            <input type="radio" id="perro1" name="ocultar" value="ocultarGato">
+            <label for="css">Perro</label><br>
+            <input type="radio" id="gato1" name="ocultar" value="ocultarPerro">
+            <label for="javascript">Gato</label>
+              
+          </div>
+        </div>
+      </div>
+      <div class="card">
+      
+       
+      </div>
+    </div>
     
     <div>
         <section class="contenido">
             <div class="mostrador" id="mostrador">
                 <div class="fila">
-                    <div class="item" onclick="cargar(this)">
+                    
+                    <div id="perro_fitFormula" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
                             <img src="../img/comida-perro.jpg" alt="">
                         </div>
-                        <p class="descripcion">NIKE AIR 97</p>
+                        <p class="descripcion">FIT FORMULA</p>
                         <span class="precio">$ 1.300</span>
                     </div>
-                    <div class="item" onclick="cargar(this)">
+
+                    <div id="perro_dogChow" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
                             <img src="../img/comida-perro2.jpg" alt="">
                         </div>
-                        <p class="descripcion" id>NIKE RUNNING TERRA </p>
+                        <p class="descripcion" id>DOG CHOW</p>
                         <span class="precio">$ 1.800</span>
                     </div>
-                    <div class="item" onclick="cargar(this)">
+
+                    <div id="gato_felinesPremium" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
                             <img src="../img/comida-gato.jpg" alt="">
                         </div>
-                        <p class="descripcion">NIKE WINFLO 8
-                        </p>
+                        <p class="descripcion">FELINES PREMIUM PARA ADULTOS</p>
                         <span class="precio">$ 3.600</span>
                     </div>
-                    <div class="item" onclick="cargar(this)">
+
+                    <div id="gato_whiskasCarne" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
                             <img src="../img/comida-gato2.jpg" alt="">
                         </div>
-                        <p class="descripcion">NIKE LOW-TOP</p>
+                        <p class="descripcion">WHISKAS: SABOR CARNE</p>
                         <span class="precio">$ 1.800</span>
                     </div>
                 </div>
+
                 <div class="fila">
-                    <div class="item" onclick="cargar(this)">
+                    <div id="perro_cannesAdulto" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
                             <img src="../img/comida-perro3.jpg" alt="">
                         </div>
-                        <p class="descripcion">NIKE BLAZER 97</p>
+                        <p class="descripcion">CANNES PARA ADULTOS: SABOR CARNE</p>
                         <span class="precio">$ 130</span>
                     </div>
-                    <div class="item" onclick="cargar(this)">
+                    <div id="gato_purinaPollo" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
                             <img src="../img/comida-gato3.jpg" alt="">
                         </div>
-                        <p class="descripcion">NIKE LEGEND ESENTIAL</p>
+                        <p class="descripcion">PURINA ONE: SABOR POLLO Y SALMON</p>
                         <span class="precio">$ 2.000</span>
                     </div>
-                    <div class="item" onclick="cargar(this)">
+                    <div id="perro_cachupinCarne" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
                             <img src="../img/comida-perro4.jpg" alt="">
                         </div>
-                        <p class="descripcion">NIKE AIR ZOOM</p>
+                        <p class="descripcion">CACHUPIN PARA ADULTOS: SABOR CARNE Y ARROZ</p>
                         <span class="precio">$ 2.500</span>
                     </div>
-                    <div class="item" onclick="cargar(this)">
+                    <div id="gato_purinaChow" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
                             <img src="../img/comida-gato4.jpg" alt="">
                         </div>
-                        <p class="descripcion">NIKE TERRA KING</p>
+                        <p class="descripcion">PURINA CAT CHOW</p>
                         <span class="precio">$ 1.800</span>
                     </div>
+
                 </div> 
+                
             </div>
             <!-- CONTENEDOR DEL ITEM SELECCIONADO -->
             <div class="seleccion" id="seleccion">
@@ -126,14 +198,14 @@
                 </div>
                 <div class="info">
                     <img src="../img/comida-perro.jpg" alt="" id="img">
-                    <h2 id="modelo">NIKE MODEL 1</h2>
+                    <h2 id="modelo">FIT FORMULA</h2>
                     <p id="descripcion">Descripción Modelo 1</p>
     
                     <span class="precio" id="precio">$ 130</span>
     
                     <div class="fila">
                         <div class="size">
-                            <label for="">SIZE</label>
+                            <label for="">CANTIDAD</label>
                             <select name="" id="">
                                 <option value="">1</option>
                                 <option value="">2</option>
@@ -141,13 +213,54 @@
                                 <option value="">4</option>
                             </select>
                         </div>
-                        <button>AGREGAR AL CARRITO</button>
+                        <button class="add-to-cart" data-product="producto3">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
         </section>
-    
-        <script src="../script/script.js"></script>
+        
+        <!-- CARDS -->
+
+        <h1 id="oferta_titulo">
+            Oferta!
+        </h1>    
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-4 ">
+                <div class="card mb-3">
+                  <img src="/IMG/comida-gato3.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card 1</h5>
+                    <p class="card-text">Oferta !Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="btn btn-primary">Leer más</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 ">
+                <div class="card mb-3">
+                  <img src="/IMG/comida-gato3.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card 2</h5>
+                    <p class="card-text">Oferta !Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="btn btn-primary">Leer más</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 ">
+                <div class="card mb-3">
+                  <img src="/IMG/comida-gato3.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card 3</h5>
+                    <p class="card-text">Oferta !Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="btn btn-primary">Leer más</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+        
 
         <div class="footer-dark">
             <footer>
@@ -165,7 +278,7 @@
                             <h3>Sobre nosotros</h3>
                             <ul>
                                 
-                                <li><a href="/vista/about_us.html">Equipo</a></li>
+                                <li><a href="../vista/about_us.html">Equipo</a></li>
                                 
                             </ul>
                         </div>

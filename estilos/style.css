@@ -264,19 +264,6 @@ li a:hover {
   width: 80%;
 }
 
-/* Carrito */
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  text-align: center;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -393,4 +380,52 @@ input[type="submit"] {
 
 .bloque_animado{
   display: none;
+}
+
+.submenu img {
+  width: 50px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.submenu{
+  position: relative;
+}
+
+.submenu #carrito{
+  display: none;
+}
+
+.submenu:hover #carrito{
+  display: block;
+  position: relative;
+  right: 0;
+  backdrop-filter: blur(10px);
+  top: 100%;
+  z-index: 1;
+  background-color: #4E4B5076;
+  padding: 20px;
+  min-width: 400px;
+  min-width: 400px;
+}
+
+table{
+  width: 100%;
+}
+
+th{
+  color: #111;
+}
+
+td{
+  color: #dfdde0;
+}
+
+.borrar {
+  background-color: #e45d34;
+  border-radius: 50%;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #dfdde0;
+  font-weight: 800;
 }

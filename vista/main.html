@@ -25,7 +25,23 @@
             <li><a id="oferta" href="#">Super Ofertas</a></li>
             <li style="float:right"><a href="../vista/registro.html">Registro</a></li>
             <li style="float:right"><a href="../vista/login.html">Ingreso</a></li>
-            <li style="float:right"><a href="../vista/carrito.html">Carrito</a></li>
+            <li style="float: right" class="submenu">
+                <img src="../img/cart.png" id="img-carrito" alt="">
+                <div id="carrito">
+                  <table id="lista-carrito">
+                      <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th></th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                  </table>
+                  <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+              </div>
+          </li>
     </ul>
     <!-- Modales -->
     <div id="modal1" class="modal" tabindex="-1" role="dialog">
@@ -120,7 +136,7 @@
     </div>
     
     <div>
-        <section class="contenido">
+        <section id="lista" class="contenido">
             <div class="mostrador" id="mostrador">
                 <div class="fila">
                     
@@ -136,7 +152,7 @@
                         <div class="contenedor-foto">
                             <img src="../img/comida-perro2.jpg" alt="">
                         </div>
-                        <p class="descripcion" id>DOG CHOW</p>
+                        <p class="descripcion">DOG CHOW</p>
                         <span class="precio">$ 1.800</span>
                     </div>
 
@@ -212,13 +228,12 @@
                                 <option value="">4</option>
                             </select>
                         </div>
-                        <button class="add-to-cart" data-product-id="producto">Agregar al carrito</button>
+                        <a href="#" class="addToCart" data-id="all">Agregar al carrito</a>
                     </div>
                 </div>
             </div>
         </section>
         
-        <script src="../script/app.js"></script>
         <script src="../script/script.js"></script>
     
         <!-- CARDS -->
@@ -296,8 +311,7 @@
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+        <script src="../script/app.js"></script>
     </body>
-
-
 </html>
 </body>

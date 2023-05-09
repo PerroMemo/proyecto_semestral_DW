@@ -46,15 +46,14 @@ $(document).ready(function() {
       let contrasena = $("#contrasena").val();
 
       
-      if (primerNombre === "" ) {
-        alert("Por favor, ingrese su primer nombre.");
+
+
+      if (primerNombre === "" || email === "" || telefono === "" || contrasena === "") {
+        alert("Por favor, rellena todos los campos.");
         return false;
       }
 
-      if (segundoNombre === "" ) {
-        alert("Por favor, ingrese su segundo nombre.");
-        return false;
-      }
+      
 
       let emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegEx.test(email)) {

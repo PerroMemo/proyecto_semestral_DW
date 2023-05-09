@@ -25,7 +25,7 @@ function comprarElemento(e) {
 function leerDatosElemento(elemento) {
     const infoElemento = {
       imagen : elemento.querySelector('img').src,
-      titulo : elemento.querySelector('p').textContent,
+      titulo : elemento.querySelector('h2').textContent,
       precio : elemento.querySelector('.precio').textContent,
       id: elemento.querySelector('a').getAttribute('data-id')
     }

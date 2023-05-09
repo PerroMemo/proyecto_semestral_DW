@@ -264,6 +264,17 @@ li a:hover {
   width: 80%;
 }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -273,14 +284,6 @@ th, td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f2f2f2;
-}
-
-tr:hover {
-  background-color: #f5f5f5;
 }
 
 td:nth-child(2),
@@ -382,14 +385,16 @@ input[type="submit"] {
   display: none;
 }
 
-.submenu img {
-  width: 50px;
-  max-width: 800px;
-  margin: 0 auto;
-}
+/* submenu */
 
 .submenu{
   position: relative;
+}
+
+.submenu img {
+  width: 60px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .submenu #carrito{
@@ -414,7 +419,7 @@ table{
 }
 
 th{
-  color: #111;
+  color: #dfdde0;
 }
 
 td{
@@ -428,4 +433,17 @@ td{
   text-decoration: none;
   color: #dfdde0;
   font-weight: 800;
+}
+
+.agregar-carrito {
+  background-color: orangered;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.agregar-carrito:hover {
+  background-color: #e45d34;
+  color: #fff;
 }

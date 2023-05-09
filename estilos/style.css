@@ -264,8 +264,6 @@ li a:hover {
   width: 80%;
 }
 
-/* Carrito */
-
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -288,6 +286,7 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
+
 th {
   background-color: #f2f2f2;
 }
@@ -295,6 +294,7 @@ th {
 tr:hover {
   background-color: #f5f5f5;
 }
+
 
 td:nth-child(2),
 td:nth-child(4),
@@ -357,10 +357,19 @@ input[type="submit"] {
 }
 
 input[type="submit"] {
+
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background-color: #008CBA;
+  color: #fff;
+  border: none;
+
   background-color: blue;
   color: white;
   border: none;
   padding: 10px 20px;
+
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
@@ -393,4 +402,71 @@ input[type="submit"] {
 
 .bloque_animado{
   display: none;
+
 }
+
+/* submenu */
+
+.submenu{
+  position: relative;
+}
+
+.submenu img {
+  width: 60px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.submenu #carrito{
+  display: none;
+}
+
+.submenu:hover #carrito{
+  display: block;
+  position: relative;
+  right: 0;
+  backdrop-filter: blur(10px);
+  top: 100%;
+  z-index: 1;
+  background-color: #4E4B5076;
+  padding: 20px;
+  min-width: 400px;
+  min-width: 400px;
+}
+
+table{
+  width: 100%;
+}
+
+th{
+  color: #dfdde0;
+}
+
+td{
+  color: #dfdde0;
+}
+
+.borrar {
+  background-color: #e45d34;
+  border-radius: 50%;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #dfdde0;
+  font-weight: 800;
+}
+
+.agregar-carrito {
+  background-color: orangered;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.agregar-carrito:hover {
+  background-color: #e45d34;
+  color: #fff;
+}
+
+}
+

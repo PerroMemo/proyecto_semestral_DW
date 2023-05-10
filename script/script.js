@@ -32,8 +32,8 @@ function quitarBordes(){
     var items = document.getElementsByClassName("item");
     for(i=0;i <items.length; i++){
         items[i].style.border = "none";
-    }
-}
+    };
+};
 
 $(document).ready(function() {
     $("#miFormulario").submit(function(event) {
@@ -46,12 +46,16 @@ $(document).ready(function() {
       let contrasena = $("#contrasena").val();
 
       
-      if (primerNombre === "" || email === "" || telefono === "" || contrasena === "") {
-        alert("Por favor, rellena todos los campos.");
+      if (primerNombre === "" ) {
+        alert("Por favor, ingrese su primer nombre.");
         return false;
       }
 
-      
+      if (segundoNombre === "" ) {
+        alert("Por favor, ingrese su segundo nombre.");
+        return false;
+      }
+
       let emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegEx.test(email)) {
         alert("Por favor, introduce una dirección de correo electrónico válida.");
@@ -105,3 +109,105 @@ $(document).ready(function() {
     });
   });
   
+  // Eventos
+  //Llevar a cards de ofertas 
+$(document).ready(function() {
+  $("#oferta").click(function(){
+      $("html, body").animate({ scrollTop: $("#oferta_titulo").offset().top }, "fast");
+      
+      console.log("a"); 
+    });
+  });
+//Llevar pagina de doativos
+$(document).ready(function() {
+$('#donar').click('shown.bs.modal', function () {
+  $("#modal1").modal('show');
+});
+
+
+$("#ir").click(function() {
+  window.location.href = "error.html";
+});
+});
+
+// Volver con ESC
+$(document).ready(function() {
+$("#volver").click(function(){
+
+  window.location.href = "main.html";
+});
+$(document).keydown(function(event) {
+
+  if (event.keyCode == 27) {
+   
+    window.location.href = "main.html";
+  }
+});
+});
+
+// Modal perro 
+$(document).ready(function() {
+  $(document).keydown(function(event) {
+    if (event.key === "F6"){
+      console.log("La tecla F6 fue presionada");
+      $("#modal2").modal('show');
+      
+    }
+    
+  });
+});
+
+/* Filtro */ 
+
+let producto_perro = ['perro_fitFormula', 'perro_dogChow', 'perro_cannesAdulto', 'perro_cachupinCarne' ];
+let producto_gato = ['gato_felinesPremium','gato_whiskasCarne', 'gato_purinaPollo','gato_purinaChow'];
+let id_ocultar;
+
+$(document).ready(function() {
+  $('input[name=ocultar]').change(function() {
+    if ($(this).val() === 'ocultarGato' && $(this).is(':checked')) {
+      for (let i = 0; i < producto_gato.length; i++) {
+        
+        let id_ocultar = producto_gato[i];
+        var selector = '#' + id_ocultar;
+        $(selector).hide(); // oculta el objeto seleccionado
+      }
+      
+    } else {
+       for (let i = 0; i < producto_gato.length; i++) {
+        
+        let id_ocultar = producto_gato[i];
+        var selector = '#' + id_ocultar;
+        $(selector).show(); // oculta el objeto seleccionado
+      }
+
+    }
+
+    if ($(this).val() === 'ocultarPerro' && $(this).is(':checked')) {
+      for (let i = 0; i < producto_perro.length; i++) {
+        
+        let id_ocultar = producto_perro[i];
+        var selector = '#' + id_ocultar;
+        $(selector).hide(); // oculta el objeto seleccionado
+      }
+    } else {
+      for (let i = 0; i < producto_perro.length; i++) {
+        
+        let id_ocultar = producto_perro[i];
+        var selector = '#' + id_ocultar;
+        $(selector).show(); // oculta el objeto seleccionado
+      }
+
+    }
+ });
+});
+
+// evento de carga
+
+$(document).ready(function() {
+  console.log("a");
+  $('#content_anim').fadeIn(2000); 
+  
+  });
+
+

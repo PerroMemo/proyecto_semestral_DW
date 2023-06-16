@@ -9,6 +9,7 @@
 <body>
     
         <h2>Formulario CRUD para Clientes</h2>
+        
         <form action="clientesAdd" method="POST">
             {% csrf_token %}
             {{form.as_table}} 

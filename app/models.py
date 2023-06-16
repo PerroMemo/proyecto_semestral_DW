@@ -14,8 +14,9 @@ class Producto(models.Model):
     id              = models.CharField(primary_key=True, max_length=4)
     nombre           = models.CharField(max_length=20)
     marca            = models.CharField(max_length=20)
-    precio         = models.CharField(max_length=6)
+    precio         = models.IntegerField(max_length=6)
     id_marca        = models.ForeignKey('Marca',on_delete=models.CASCADE, db_column='idMarca')  
+    stock           = models.CharField(max_length=4)
 
     def __str__(self):
         return str(self.nombre)+" "+str(self.marca)
@@ -26,7 +27,7 @@ class Cliente(models.Model):
     apellido_paterno = models.CharField(max_length=20)
     apellido_materno = models.CharField(max_length=20)
     fecha_nacimiento = models.DateField(blank=False, null=False) 
-    telefono         = models.CharField(max_length=45)
+    telefono         = models.IntegerField(max_length=8)
     email            = models.EmailField(unique=True, max_length=100)
     direccion        = models.CharField(max_length=50, blank=True, null=True)  
 
@@ -40,7 +41,7 @@ class Empleado(models.Model):
     apellido_paterno = models.CharField(max_length=20)
     apellido_materno = models.CharField(max_length=20)
     fecha_nacimiento = models.DateField(blank=False, null=False) 
-    telefono         = models.CharField(max_length=45)
+    telefono         = models.IntegerField(max_length=45)
     email            = models.EmailField(unique=True, max_length=100)
     direccion        = models.CharField(max_length=50, blank=True, null=True)  
 
@@ -48,11 +49,13 @@ class Empleado(models.Model):
         return str(self.nombre)+" "+str(self.apellido_paterno)   
 
     
-class Ticket(models.Model):
+class Boleta(models.Model):
+    id_boleta        = models.CharField(primary_key=True, max_length=4)
     rut_cliente      = models.ForeignKey('Cliente',on_delete=models.CASCADE, db_column = 'rut_cliente')
-    nombre           = models.CharField(max_length=20)
+    nombre_producto  = models.CharField(max_length=20)
     email            = models.EmailField(unique=True, max_length=100, blank= False)
-    
+    precio_total     = models.CharField(max_length=6)
+
     def __str__(self):
-        return str(self.nombre)+" "+str(self.email)   
+        return str(self.rut_cliente) + " " +  str(self.nombre_producto)
 

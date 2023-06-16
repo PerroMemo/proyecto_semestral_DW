@@ -11,7 +11,7 @@
     <div style="text-align: center;">
 
         {% if ticket %}
-            <h2>Formulario Actualizar Ticket</h2><br>
+            <h2>Formulario Actualizar Boleta</h2><br>
 
             <form action="" method="POST">
                 {% csrf_token %}
@@ -28,7 +28,7 @@
             {% endif %}
         </div>
         <br><br>
-        <a href="{% url 'crud_ticket' %}"> Volver </a>
+        <a href="{% url 'crud_boleta' %}"> Volver </a>
     </div>
 </body>
 </html>

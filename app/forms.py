@@ -1,34 +1,29 @@
 from django import forms
-from app.models import Cliente, Marca, Ticket, Empleado, Producto
+from app.models import Cliente, Marca, Boleta, Empleado, Producto
 
 from django.forms import ModelForm
 
 class ClientesForm(ModelForm):
     class Meta:
         model = Cliente
-        fields = ["cliente",]
-        labels = {'cliente': 'Cliente',}
+        fields = "__all__"
 
 class MarcaForm(ModelForm):
     class Meta:
         model = Marca
-        fields = ["marca",]
-        labels = {'marca': 'Marca',}
+        fields = "__all__"
 
-class TicketForm(ModelForm):
+class BoletaForm(ModelForm):
     class Meta:
-        model = Ticket
-        fields = ["ticket",]
-        labels = {'ticket': 'Ticket',}
+        model = Boleta
+        fields = "__all__"
 
 class EmpleadosForm(ModelForm):
     class Meta:
         model = Empleado
-        fields = ["empleado",]
-        labels = {'empleado': 'Empleado',}
+        fields = "__all__"
 
 class ProductoForm(ModelForm):
     class Meta:
         model = Producto
-        fields = ["producto",]
-        labels = {'producto': 'Producto',}
+        fields = "__all__"

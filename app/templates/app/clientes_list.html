@@ -34,7 +34,7 @@
             <th>Modificar</th>
             {% for x in clientes %}
                 <tr>
-                    <td> {{ x.clientes }}
+                    <td> {{ x.rut }}
                     <td> <a href="{% url 'clientes_del' pk=x.rut %}">Eliminar</a>
                     <td> <a href="{% url 'clientes_edit' pk=x.rut %}">Modificar</a>
                 </tr>

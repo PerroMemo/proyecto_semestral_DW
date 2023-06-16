@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from .models import Cliente, Marca, Producto, Empleado, Ticket
+from app.models import Cliente, Marca, Producto, Empleado, Boleta
 
-from .forms import ClientesForm, MarcaForm, TicketForm, EmpleadosForm, ProductoForm
+from .forms import ClientesForm, MarcaForm, BoletaForm, EmpleadosForm, ProductoForm
 # Create your views here.
 
 def index(request):
@@ -58,13 +58,16 @@ def clientesAdd(request):
         form = ClientesForm()
         context={'form':form}
         return render(request,"app/clientes_add.html",context)
-    
+
+
+#Este DEL funciona 
 def clientes_del(request, pk):
     mensajes=[]
     errores=[]
     clientes= Cliente.objects.all()
     try:
         cliente=Cliente.objects.get(rut=pk)
+        
         context={}
         if cliente:
             cliente.delete()
@@ -75,21 +78,37 @@ def clientes_del(request, pk):
         print("Error, id no existe...")
         clientes=Cliente.objects.all()
         mensaje="Error, rut no existe"
-        context={'clientes': clientes, 'mensajes': mensajes, 'errores': errores}
+        context={'clientes': clientes, 'mensajes': mensajes}
         return render(request,"app/clientes_list.html",context)
     
+
+#USAR ESTE COMO BASE PARA EL RESTO DE EDITS
 def clientes_edit(request, pk):
     try:
+        #error en la tomada de pk 
         cliente=Cliente.objects.get(rut=pk)
+        print(cliente)
+
         context={}
-        if clientes:
+       
+        if cliente:
             print("Edit encontró el cliente...")
-            form=ClientesForm(request.POST,instance=cliente)
-            form.save()
-            mensaje="Bien, datos actualizados..."
-            print(mensaje)
-            context={'cliente': cliente, 'form': form, 'mensaje': mensaje}
-            return render(request,"app/clientes_edit.html",context)
+            if request.method == "POST":
+                print("Es post")
+                form=ClientesForm(request.POST,instance=cliente)
+                form.save()
+                mensaje="Bien, datos actualizados..."
+                print(mensaje)
+                context={'cliente': cliente, 'form': form, 'mensaje': mensaje}
+                return render(request,"app/clientes_edit.html",context)
+          
+            else:
+                print("No es post")
+                form=ClientesForm(instance=cliente)
+                mensaje=""
+                context={'cliente': cliente, 'form': form, 'mensaje': mensaje}
+                return render(request,"app/clientes_edit.html",context)
+   
     except:
         print("Error, rut no existe...")
         clientes=Cliente.objects.all()
@@ -295,68 +314,68 @@ def empleados_edit(request, pk):
         context={'mensaje': mensaje, 'empleados': empleados}
         return render(request,"app/empleados_list.html",context)
     
-def crud_ticket(request):
+def crud_boleta(request):
 
-    tickets=Ticket.objects.all()
-    context={'tickets':tickets}
-    print("enviando datos tickets_list")
-    return render(request,"alumnos/tickets_list.html",context)
+    boletas=Boleta.objects.all()
+    context={'boletas':boletas}
+    print("enviando datos boletas_list")
+    return render(request,"app/boletas_list.html",context)
 
-def ticketAdd(request):
-    print("estoy en controlador ticketAdd...")
+def boletaAdd(request):
+    print("estoy en controlador boletaAdd...")
     context={}
 
     if request.method == "POST":
         print("controlador es un post...")
-        form = TicketForm(request.POST)
+        form = BoletaForm(request.POST)
         if form.is_valid:
             print("estoy en agregar, is_valid")
             form.save()
 
             #limpiar form
-            form=TicketForm()
+            form=BoletaForm()
 
             context={'mensaje':"Ok, datos grabados...","form":form}
-            return render(request,"alumnos/tickets_add.html",context)
+            return render(request,"app/boletas_add.html",context)
     else:
-        form = TicketForm()
+        form = BoletaForm()
         context={'form':form}
-        return render(request,"alumnos/tickets_add.html",context)
+        return render(request,"app/boletas_add.html",context)
     
-def ticket_del(request, pk):
+def boleta_del(request, pk):
     mensajes=[]
     errores=[]
-    tickets= Ticket.objects.all()
+    boletas= Boleta.objects.all()
     try:
-        ticket=Ticket.objects.get(rut_cliente=pk)
+        boleta=Boleta.objects.get(id_boleta=pk)
         context={}
-        if ticket:
-            ticket.delete()
+        if boleta:
+            boleta.delete()
             mensaje.append("Bien, datos eliminados...")
-            context={'tickets': tickets, 'mensajes': mensajes, 'errores': errores}
-            return render(request,"alumnos/tickets_list.html",context)
+            context={'boletas': boletas, 'mensajes': mensajes, 'errores': errores}
+            return render(request,"app/boletas_list.html",context)
     except:
-        print("Error, rut_cliente no existe...")
-        tickets=Ticket.objects.all()
-        mensaje="Error, rut_cliente no existe"
-        context={'tickets': tickets, 'mensajes': mensajes, 'errores': errores}
-        return render(request,"alumnos/tickets_list.html",context)
+        print("Error, id_boleta no existe...")
+        boletas=Boleta.objects.all()
+        mensaje="Error, id_boleta no existe"
+        context={'boletas': boletas, 'mensajes': mensajes, 'errores': errores}
+        return render(request,"app/boletas_list.html",context)
     
-def ticket_edit(request, pk):
+def boleta_edit(request, pk):
     try:
-        ticket=Ticket.objects.get(rut_cliente=pk)
+        boleta=Boleta.objects.get(id_boleta=pk)
         context={}
-        if ticket:
-            print("Edit encontró el ticket...")
-            form=TicketForm(request.POST,instance=ticket)
+        if boleta:
+            print("Edit encontró la boleta...")
+            form=BoletaForm(request.POST,instance=boleta)
             form.save()
             mensaje="Bien, datos actualizados..."
             print(mensaje)
-            context={'ticket': ticket, 'form': form, 'mensaje': mensaje}
-            return render(request,"alumnos/tickets_edit.html",context)
+            context={'boleta': boleta, 'form': form, 'mensaje': mensaje}
+            return render(request,"app/boletas_edit.html",context)
     except:
-        print("Error, rut_cliente no existe...")
-        tickets=Ticket.objects.all()
-        mensaje="Error, rut_cliente no existe"
-        context={'mensaje': mensaje, 'tickets': tickets}
-        return render(request,"alumnos/tickets_list.html",context)
+        print("Error, id_boleta no existe...")
+        boletas=Boleta.objects.all()
+        mensaje="Error, id_boleta no existe"
+        context={'mensaje': mensaje, 'boletas': boletas}
+        return render(request,"app/boletas_list.html",context)

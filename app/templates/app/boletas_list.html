@@ -10,7 +10,7 @@
 </head>
 <body>
     
-    <h1>Editar Ticket</h1><br>
+    <h1>Editar Boleta</h1><br>
     <br>
 
 
@@ -18,7 +18,7 @@
 
 
     <button type="button">
-        <a href="{% url 'ticketAdd' %}"> Agregar </a>
+        <a href="{% url 'boletaAdd' %}"> Agregar </a>
     </button>
 
     <div id="idMensajes">
@@ -28,15 +28,15 @@
     </div>
 
     <table>
-        {% if tickets %}
-            <th>Ticket</th>
+        {% if boletas %}
+            <th>Boleta</th>
             <th>Eliminar</th>
             <th>Modificar</th>
-            {% for x in tickets %}
+            {% for x in boletas %}
                 <tr>
-                    <td> {{ x.ticket }}
-                    <td> <a href="{% url 'ticket_del' pk=x.rut_cliente %}">Eliminar</a>
-                    <td> <a href="{% url 'ticket_edit' pk=x.rut_cliente %}">Modificar</a>
+                    <td> {{ x.boleta }}
+                    <td> <a href="{% url 'boleta_del' pk=x.id_boleta %}">Eliminar</a>
+                    <td> <a href="{% url 'boleta_edit' pk=x.id_boleta %}">Modificar</a>
                     
                 </tr>
             {% endfor %}

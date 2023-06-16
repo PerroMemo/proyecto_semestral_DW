@@ -8,7 +8,7 @@
 </head>
 <body>
     
-        <h2>Formulario CRUD para Tickets</h2>
+        <h2>Formulario CRUD para Boletas</h2>
         <form action="ticketAdd" method="POST">
             {% csrf_token %}
             {{form.as_table}} 
@@ -23,7 +23,7 @@
         </div>
 
         <br>
-        <a href="{% url 'crud_ticket' %}"> Volver </a>
+        <a href="{% url 'crud_boleta' %}"> Volver </a>
         <br>
 
 </body>

@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Marca(models.Model):
-    id_genero        = models.AutoField(db_column='idMarca', primary_key=True)  
+    id_marca        = models.AutoField(db_column='idMarca', primary_key=True)  
     nombre           = models.CharField(max_length=20)
 
     def __str__(self):

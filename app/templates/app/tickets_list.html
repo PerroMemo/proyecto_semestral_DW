@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Editar Ticket</h1><br>
+    <br>
+
+
+
+
+
+    <button type="button">
+        <a href="{% url 'ticketAdd' %}"> Agregar </a>
+    </button>
+
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+
+    <table>
+        {% if tickets %}
+            <th>Ticket</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
+            {% for x in tickets %}
+                <tr>
+                    <td> {{ x.ticket }}
+                    <td> <a href="{% url 'ticket_del' pk=x.rut_cliente %}">Eliminar</a>
+                    <td> <a href="{% url 'ticket_edit' pk=x.rut_cliente %}">Modificar</a>
+                    
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#idMensajes").delay(2000).fadeOut("slow");
+        });
+    </script>
+</body>
+</html>

@@ -34,7 +34,7 @@
             <th>Modificar</th>
             {% for x in marcas %}
                 <tr>
-                    <td> {{ x.marca }}
+                    <td> {{ x.nombre }}
                     <td> <a href="{% url 'marca_del' pk=x.id_marca %}">Eliminar</a>
                     <td> <a href="{% url 'marca_edit' pk=x.id_marca %}">Modificar</a>
                     

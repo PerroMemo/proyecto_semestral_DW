@@ -34,7 +34,7 @@
             <th>Modificar</th>
             {% for x in empleados %}
                 <tr>
-                    <td> {{ x.empleado }}
+                    <td> {{ x.nombre }}
                     <td> <a href="{% url 'empleados_del' pk=x.rut %}">Eliminar</a>
                     <td> <a href="{% url 'empleados_edit' pk=x.rut %}">Modificar</a>
                     

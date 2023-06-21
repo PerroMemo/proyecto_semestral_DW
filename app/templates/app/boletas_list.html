@@ -34,7 +34,7 @@
             <th>Modificar</th>
             {% for x in boletas %}
                 <tr>
-                    <td> {{ x.boleta }}
+                    <td> {{ x.nombre_producto }}
                     <td> <a href="{% url 'boleta_del' pk=x.id_boleta %}">Eliminar</a>
                     <td> <a href="{% url 'boleta_edit' pk=x.id_boleta %}">Modificar</a>
                     

@@ -34,7 +34,7 @@
             <th>Modificar</th>
             {% for x in productos %}
                 <tr>
-                    <td> {{ x.producto }}
+                    <td> {{ x.nombre }}
                     <td> <a href="{% url 'productos_del' pk=x.id %}">Eliminar</a>
                     <td> <a href="{% url 'productos_edit' pk=x.id %}">Modificar</a>
                     

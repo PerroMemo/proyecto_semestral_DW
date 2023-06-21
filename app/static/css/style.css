@@ -264,12 +264,6 @@ li a:hover {
   width: 80%;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
 
 h1 {
   text-align: center;
@@ -389,63 +383,24 @@ input[type="submit"] {
 
 /* submenu */
 
-.submenu{
-  position: relative;
+
+
+ul .errorlist{
+  background-color: yellow !important;
 }
 
-.submenu img {
-  width: 60px;
-  max-width: 800px;
-  margin: 0 auto;
-}
+/* CARRITO */
 
-.submenu #carrito{
-  display: none;
-}
-
-.submenu:hover #carrito{
-  display: block;
-  position: relative;
-  right: 0;
-  backdrop-filter: blur(10px);
-  top: 100%;
-  z-index: 1;
-  background-color: #4E4B5076;
-  padding: 20px;
-  min-width: 400px;
-  min-width: 400px;
-}
-
-table{
-  width: 100%;
+.carrito {
+  color: black;
 }
 
 th{
-  color: #dfdde0;
+  color: black;
+
 }
 
-td{
-  color: #dfdde0;
+table .alert .alert-primary {
+  max-width: 1200px;
 }
 
-.borrar {
-  background-color: #e45d34;
-  border-radius: 50%;
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #dfdde0;
-  font-weight: 800;
-}
-
-.agregar-carrito {
-  background-color: orangered;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-.agregar-carrito:hover {
-  background-color: #e45d34;
-  color: #fff;
-}

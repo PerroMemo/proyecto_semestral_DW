@@ -1,14 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from app.models import Cliente, Marca, Producto, Empleado, Boleta
 
-from .forms import ClientesForm, MarcaForm, BoletaForm, EmpleadosForm, ProductoForm
+#Compra
+from app.Carrito import Carrito
+from django.utils import timezone
+from datetime import datetime
+from app.models import Cliente, Marca, Producto, Empleado, Boleta
+from .forms import ClientesForm, MarcaForm, BoletaForm, EmpleadosForm, ProductoForm, RegistroForm
 # Create your views here.
 
 def index(request):
 
     context = {}
-    return render(request, 'app/index.html',context)
+    productos = Producto.objects.all()
+    return render(request, 'app/index.html',{'productos': productos})
 
 
 def about_us(request):
@@ -30,6 +35,11 @@ def error(request):
 
     context = {}
     return render(request, 'app/error.html',context)
+
+def comprar(request):
+
+    context = {}
+    return render(request, 'app/comprar.html',context)
 
 def crud_clientes(request):
 
@@ -85,36 +95,36 @@ def clientes_del(request, pk):
 #USAR ESTE COMO BASE PARA EL RESTO DE EDITS
 def clientes_edit(request, pk):
     try:
-        #error en la tomada de pk 
-        cliente=Cliente.objects.get(rut=pk)
+        #error en la tomada de pk
+        cliente = Cliente.objects.get(rut=pk)
         print(cliente)
 
-        context={}
+        context = {}
        
         if cliente:
             print("Edit encontró el cliente...")
             if request.method == "POST":
-                print("Es post")
-                form=ClientesForm(request.POST,instance=cliente)
-                form.save()
-                mensaje="Bien, datos actualizados..."
-                print(mensaje)
-                context={'cliente': cliente, 'form': form, 'mensaje': mensaje}
-                return render(request,"app/clientes_edit.html",context)
-          
+                print("Es POST")
+                form = ClientesForm(request.POST, instance=cliente)
+                if form.is_valid():
+                    form.save()
+                    mensaje = "Bien, datos actualizados..."
+                    print(mensaje)
+                    context = {'cliente': cliente, 'form': form, 'mensaje': mensaje}
+                    return render(request, "app/clientes_edit.html", context)
             else:
-                print("No es post")
-                form=ClientesForm(instance=cliente)
-                mensaje=""
-                context={'cliente': cliente, 'form': form, 'mensaje': mensaje}
-                return render(request,"app/clientes_edit.html",context)
+                print("No es POST")
+                form = ClientesForm(instance=cliente)
+                mensaje = ""
+                context = {'cliente': cliente, 'form': form, 'mensaje': mensaje}
+                return render(request, "app/clientes_edit.html", context)
    
     except:
         print("Error, rut no existe...")
-        clientes=Cliente.objects.all()
-        mensaje="Error, rut no existe"
-        context={'mensaje': mensaje, 'clientes': clientes}
-        return render(request,"app/clientes_list.html",context)
+        clientes = Cliente.objects.all()
+        mensaje = "Error, rut no existe"
+        context = {'mensaje': mensaje, 'clientes': clientes}
+        return render(request, "app/clientes_list.html", context)
     
 def crud_marca(request):
 
@@ -169,12 +179,19 @@ def marca_edit(request, pk):
         context={}
         if marca:
             print("Edit encontró la marca...")
-            form=MarcaForm(request.POST,instance=marca)
-            form.save()
-            mensaje="Bien, datos actualizados..."
-            print(mensaje)
-            context={'marca': marca, 'form': form, 'mensaje': mensaje}
-            return render(request,"app/marcas_edit.html",context)
+            if request.method == "POST":
+                form=MarcaForm(request.POST,instance=marca)
+                form.save()
+                mensaje="Bien, datos actualizados..."
+                print(mensaje)
+                context={'marca': marca, 'form': form, 'mensaje': mensaje}
+                return render(request,"app/marcas_edit.html",context)
+            else:
+                print("edit, NO es un POST")
+                form = MarcaForm(instance=marca)
+                mensaje = ""
+                context = {'marca': marca, 'form': form, 'mensaje': mensaje}
+                return render(request, "app/marcas_edit.html", context)
     except:
         print("Error, id no existe...")
         marcas=Marca.objects.all()
@@ -235,12 +252,19 @@ def productos_edit(request, pk):
         context={}
         if producto:
             print("Edit encontró el producto...")
-            form=ProductoForm(request.POST,instance=producto)
-            form.save()
-            mensaje="Bien, datos actualizados..."
-            print(mensaje)
-            context={'producto': producto, 'form': form, 'mensaje': mensaje}
-            return render(request,"app/productos_edit.html",context)
+            if request.method == "POST":
+                form=ProductoForm(request.POST,instance=producto)
+                form.save()
+                mensaje="Bien, datos actualizados..."
+                print(mensaje)
+                context={'producto': producto, 'form': form, 'mensaje': mensaje}
+                return render(request,"app/productos_edit.html",context)
+            else:
+                print("edit, NO es un POST")
+                form = ProductoForm(instance=producto)
+                mensaje = ""
+                context = {'producto': producto, 'form': form, 'mensaje': mensaje}
+                return render(request, "app/productos_edit.html", context)    
     except:
         print("Error, id no existe...")
         productos=Producto.objects.all()
@@ -301,12 +325,19 @@ def empleados_edit(request, pk):
         context={}
         if empleado:
             print("Edit encontró el empleado...")
-            form=EmpleadosForm(request.POST,instance=empleado)
-            form.save()
-            mensaje="Bien, datos actualizados..."
-            print(mensaje)
-            context={'empleado': empleado, 'form': form, 'mensaje': mensaje}
-            return render(request,"app/empleados_edit.html",context)
+            if request.method == "POST":
+                form=EmpleadosForm(request.POST,instance=empleado)
+                form.save()
+                mensaje="Bien, datos actualizados..."
+                print(mensaje)
+                context={'empleado': empleado, 'form': form, 'mensaje': mensaje}
+                return render(request,"app/empleados_edit.html",context)
+            else:
+                print("No es POST")
+                form = EmpleadosForm(instance=empleado)
+                mensaje = ""
+                context = {'empleado': empleado, 'form': form, 'mensaje': mensaje}
+                return render(request, "app/empleados_edit.html", context)
     except:
         print("Error, rut no existe...")
         empleados=Empleado.objects.all()
@@ -364,18 +395,109 @@ def boleta_del(request, pk):
 def boleta_edit(request, pk):
     try:
         boleta=Boleta.objects.get(id_boleta=pk)
+        print(boleta)
+
         context={}
         if boleta:
             print("Edit encontró la boleta...")
-            form=BoletaForm(request.POST,instance=boleta)
-            form.save()
-            mensaje="Bien, datos actualizados..."
-            print(mensaje)
-            context={'boleta': boleta, 'form': form, 'mensaje': mensaje}
-            return render(request,"app/boletas_edit.html",context)
+            if request.method == "POST":
+                print("edit, es un POST")
+                form=BoletaForm(request.POST,instance=boleta)
+                form.save()
+                mensaje="Bien, datos actualizados..."
+                print(mensaje)
+                context={'boleta': boleta, 'form': form, 'mensaje': mensaje}
+                return render(request,"app/boletas_edit.html",context)
+            else:
+                print("edit, NO es un POST")
+                form = BoletaForm(instance=boleta)
+                mensaje = ""
+                context = {'boleta': boleta, 'form': form, 'mensaje': mensaje}
+                return render(request,"app/boletas_edit.html", context)
     except:
         print("Error, id_boleta no existe...")
         boletas=Boleta.objects.all()
         mensaje="Error, id_boleta no existe"
         context={'mensaje': mensaje, 'boletas': boletas}
         return render(request,"app/boletas_list.html",context)
+    
+def registro(request):
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('registro') 
+    else:
+        form = RegistroForm()
+    
+    return render(request, 'app/registro.html', {'form': form})
+
+#COMPRAS
+
+
+def agregar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id)
+    carrito.agregar(producto)
+    return redirect("index")
+
+def eliminar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id)
+    carrito.eliminar(producto)
+    return redirect("index")
+
+def restar_producto(request, producto_id):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id=producto_id)
+    carrito.restar(producto)
+    return redirect("index")
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("index")
+
+
+#Funcional~
+#Cambia stock e inserta boletas. 
+#Errores conocidos, no puede guardar los ids de cada producto
+
+
+
+def restarStock_producto(request):
+    carrito = Carrito(request)
+    set_carro =  request.session["carrito"].items()
+    print(set_carro)
+    precio_total_prod = 0
+    ls_productos = []
+
+    for i in set_carro:
+        tuplex = i[1]
+
+        id_buscar = tuplex["producto_id"]
+        resto = tuplex["cantidad"]
+        precio_total_prod = precio_total_prod + tuplex["precio"]
+        
+        print(id_buscar)
+        print("------")
+        
+        producto = Producto.objects.get(id=id_buscar)
+        ls_productos.append(producto)
+
+        print(producto)
+        print( producto.stock)
+
+        producto.stock =  int(producto.stock) - resto
+        print( producto.stock)
+        producto.save()
+    
+    print(precio_total_prod)
+    print(ls_productos)
+    fecha_str = datetime.now().date().isoformat()
+
+    nueva_boleta = Boleta(fecha= fecha_str, id_producto = producto , precio_total = precio_total_prod)
+    nueva_boleta.save()
+    carrito.limpiar()
+    return redirect("index")
+

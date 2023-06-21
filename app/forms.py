@@ -27,3 +27,8 @@ class ProductoForm(ModelForm):
     class Meta:
         model = Producto
         fields = "__all__"
+
+class RegistroForm(ModelForm):
+    class Meta:
+        model = Cliente
+        fields = "__all__"

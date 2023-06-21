@@ -64,8 +64,7 @@
 <!--Nvbar-->
     <ul>
       <li><a href="index">Pagina principal</a></li>
-      <li><a href="#Perro">Perro</a></li>
-      <li><a href="#Gato">Gato</a></li>
+  
       <li><a id="donar" href="#">Donativos</a></li>
       <li><a id="oferta" href="#">Super Ofertas</a></li>
       <li style="float:right"><a href="registro">Registro</a></li>
@@ -73,18 +72,15 @@
     </ul>
 </div>
 
-<div class="bloque_animado" id="content_anim">
-    <div class="container-fluid">
-        <h1 class="center-texto padding-top">¿Quienes somos?</h1>  
-        <p class="center-texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. A sed 
-        ipsa sint voluptas, odio numquam architecto nesciunt magni unde odit aliquam
-            fuga magnam voluptatem sapiente blanditiis animi placeat rerum quidem.</p>
-        <img class="center-image" src="../IMG/equipo.jpg" alt="">
-    </div>
-
-</div>
        
-    
+<div class="container-fluid">
+  <h1 class="center-texto padding-top">¿Quienes somos?</h1>  
+  <p class="center-texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. A sed 
+  ipsa sint voluptas, odio numquam architecto nesciunt magni unde odit aliquam
+      fuga magnam voluptatem sapiente blanditiis animi placeat rerum quidem.</p>
+  <img class="center-image" src="{% static 'media/equipo.jpg' %}" alt="">
+</div>
+
 <!-- FOOTER -->
 <div class="footer-dark">
     <footer>
@@ -102,7 +98,7 @@
                     <h3>Sobre nosotros</h3>
                     <ul>
                         
-                      <li><a href="../vista/about_us.html">Equipo</a></li>                        
+                      <li><a href="about_us">Equipo</a></li>                        
                     </ul>
                 </div>
                 <div class="col-md-6 item text">

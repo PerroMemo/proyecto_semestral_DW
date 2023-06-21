@@ -22,29 +22,12 @@
 <div>
     <ul>
             <li><a href="index">Pagina principal</a></li>
-            <li><a href="#Perro">Perro</a></li>
-            <li><a href="#Gato">Gato</a></li>
+            
             <li><a id="donar" href="#">Donativos</a></li>
             <li><a id="oferta" href="#">Super Ofertas</a></li>
             <li style="float:right"><a href="registro">Registro</a></li>
             <li style="float:right"><a href="login">Ingreso</a></li>
-            <li style="float: right" class="submenu">
-                <img src="{% static 'media/cart.png' %}"  alt="">
-                <div id="carrito">
-                  <table id="lista-carrito">
-                      <thead>
-                        <tr>
-                            <th>Imagen</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th></th>
-                        </tr>
-                      </thead>
-                      <tbody></tbody>
-                  </table>
-                  <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
-              </div>
-          </li>
+            <li style="float: right" class="submenu"></li>
     </ul>
 </div>
     <!-- Modales -->
@@ -76,7 +59,7 @@
              
             </div>
             <div class="modal-body">
-              <img class="img-fluid perro_sorpresa" src="../img/perro.jpg" alt="#">
+              <img class="img-fluid perro_sorpresa" src="{% static 'media/perro.jpg' %}" alt="#">
             </div>
             <div class="modal-footer">
             </div>
@@ -138,7 +121,38 @@
        
       </div>
     </div>
-    
+ <!-- NUEVA COMPRA-->
+
+    <div class="container">
+      
+      <div class="row">
+          <div class="col-8">
+              <div class="row" style="padding: 10px 0; margin: 0;">
+                  <div class="col-12">
+                      <div class="row">
+                          {% for i in productos %}
+                          <div class="col-12">
+                              <div class="card carrito" style="height: 10rem; width: 23rem; margin: 5px 0px;">
+                                  <div class="card-body">
+                                      <h5 class="card-title">{{i.nombre}}</h5>
+                                      <img src="{{i.imagen.url}}" alt="...">
+                                      <p class="card-text">{{i.marca}}</p>
+                                      <p class="card-text">{{i.precio}}</p>
+                                      <a href="{% url 'Add' i.id %}" class="btn btn-primary">Agregar al carrito</a>
+
+                                  </div>
+                              </div>
+                          </div>
+                          {% endfor %}
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4">
+            {% include 'app/carrito.html' %}
+          </div>
+      </div>
+  </div>
     <div>
         <section id="lista" class="contenido">
             <div class="mostrador" id="mostrador">
@@ -146,7 +160,7 @@
                     
                     <div id="perro_fitFormula" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
-                            <img src="../img/comida-perro.jpg" alt="">
+                            <img src="{% static 'media/comida-perro.jpg' %}" alt="">
                         </div>
                         <p class="descripcion">FIT FORMULA</p>
                         <span class="precio">$ 1.300</span>
@@ -154,7 +168,7 @@
 
                     <div id="perro_dogChow" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
-                            <img src="../img/comida-perro2.jpg" alt="">
+                            <img src="{% static 'media/comida-perro2.jpg' %}" alt="">
                         </div>
                         <p class="descripcion">DOG CHOW</p>
                         <span class="precio">$ 1.800</span>
@@ -162,7 +176,7 @@
 
                     <div id="gato_felinesPremium" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
-                            <img src="../img/comida-gato.jpg" alt="">
+                            <img src="{% static 'media/comida-gato.jpg' %}" alt="">
                         </div>
                         <p class="descripcion">FELINES PREMIUM PARA ADULTOS</p>
                         <span class="precio">$ 3.600</span>
@@ -170,7 +184,7 @@
 
                     <div id="gato_whiskasCarne" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
-                            <img src="../img/comida-gato2.jpg" alt="">
+                            <img src="{% static 'media/comida-gato2.jpg' %}" alt="">
                         </div>
                         <p class="descripcion">WHISKAS: SABOR CARNE</p>
                         <span class="precio">$ 1.800</span>
@@ -180,28 +194,28 @@
                 <div class="fila">
                     <div id="perro_cannesAdulto" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
-                            <img src="../img/comida-perro3.jpg" alt="">
+                            <img src="{% static 'media/comida-perro3.jpg' %}" alt="">
                         </div>
                         <p class="descripcion">CANNES PARA ADULTOS: SABOR CARNE</p>
                         <span class="precio">$ 130</span>
                     </div>
                     <div id="gato_purinaPollo" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
-                            <img src="../img/comida-gato3.jpg" alt="">
+                            <img src="{% static 'media/comida-gato3.jpg' %}" alt="">
                         </div>
                         <p class="descripcion">PURINA ONE: SABOR POLLO Y SALMON</p>
                         <span class="precio">$ 2.000</span>
                     </div>
                     <div id="perro_cachupinCarne" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
-                            <img src="../img/comida-perro4.jpg" alt="">
+                            <img src="{% static 'media/comida-perro4.jpg' %}" alt="">
                         </div>
                         <p class="descripcion">CACHUPIN PARA ADULTOS: SABOR CARNE Y ARROZ</p>
                         <span class="precio">$ 2.500</span>
                     </div>
                     <div id="gato_purinaChow" class="item" onclick="cargar(this)">
                         <div class="contenedor-foto">
-                            <img src="../img/comida-gato4.jpg" alt="">
+                            <img src="{% static 'media/comida-gato4.jpg' %}" alt="">
                         </div>
                         <p class="descripcion">PURINA CAT CHOW</p>
                         <span class="precio">$ 1.800</span>
@@ -216,7 +230,7 @@
                     &#x2715
                 </div>
                 <div class="info">
-                    <img src="../img/comida-perro.jpg" alt="" id="img">
+                    <img src="{% static 'media/comida-perro.jpg' %}" alt="" id="img">
                     <h2 id="modelo">FIT FORMULA</h2>
                     <p id="descripcion">Descripción Modelo 1</p>
     
@@ -229,7 +243,7 @@
             </div>
         </section>
         
-        <script src="../script/script.js"></script>
+        <script src="{% static 'js/script.js' %}"></script>
     
         <!-- CARDS -->
 
@@ -240,7 +254,7 @@
             <div class="row">
               <div class="col-sm-4 ">
                 <div class="card mb-3">
-                  <img src="../img/comida-gato3.jpg" class="card-img-top" alt="...">
+                  <img src="{% static 'media/comida-gato3.jpg' %}" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Card 1</h5>
                     <p class="card-text">Oferta !Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -250,7 +264,7 @@
               </div>
               <div class="col-sm-4 ">
                 <div class="card mb-3">
-                  <img src="../img/comida-gato3.jpg" class="card-img-top" alt="...">
+                  <img src="{% static 'media/comida-gato3.jpg' %}" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Card 2</h5>
                     <p class="card-text">Oferta !Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -260,7 +274,7 @@
               </div>
               <div class="col-sm-4 ">
                 <div class="card mb-3">
-                  <img src="../img/comida-gato3.jpg" class="card-img-top" alt="...">
+                  <img src="{% static 'media/comida-gato3.jpg' %}" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Card 3</h5>
                     <p class="card-text">Oferta !Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

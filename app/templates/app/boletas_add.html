@@ -9,7 +9,7 @@
 <body>
     
         <h2>Formulario CRUD para Boletas</h2>
-        <form action="ticketAdd" method="POST">
+        <form action="boletaAdd" method="POST">
             {% csrf_token %}
             {{form.as_table}} 
         <input type="submit" name="opcion" value="Agregar">

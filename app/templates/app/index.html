@@ -1,0 +1,237 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+  </head>
+<body>
+
+<!-- Titulo-->
+<div  class="container-fluid">
+        <img class="icon" src="{% static 'media/Diseño sin título.png' %}" alt="#">
+        <span class="titulo">Todo para tu mascota</span>
+        
+</div>
+<div>
+    <ul>
+            <li><a href="index">Pagina principal</a></li>
+            
+            <li><a id="donar" href="#">Donativos</a></li>
+            <li><a id="oferta" href="#">Super Ofertas</a></li>
+            <li style="float:right"><a href="registro">Registro</a></li>
+            <li style="float:right"><a href="login">Ingreso</a></li>
+            <li style="float: right" class="submenu"></li>
+    </ul>
+</div>
+    <!-- Modales -->
+    <div id="modal1" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Redirección a otra pagina</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Sera redirigido a la pagina de donaciones ¿Estas seguro de que quiere salir?</p>
+            </div>
+            <div class="modal-footer">
+              <button id="ir" type="button" class="btn btn-primary">Ir</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Quedarse</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal2" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Perro sorpresa</h5>
+             
+            </div>
+            <div class="modal-body">
+              <img class="img-fluid perro_sorpresa" src="{% static 'media/perro.jpg' %}" alt="#">
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!--Carrusel-->    
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            {% load static %}  <img id="carr1" src="{% static 'media/black-extension-tkpet-desktop.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            {% load static %}  <img id="carr1" src="{% static 'media/black-extension-zeedog-kong-desktop.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            {% load static %}  <img id="carr1" src="{% static 'media/p-bomba-desktop.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+      
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <br>
+    <!-- Filtro de objetos -->
+    <div class="accordion" id="accordion">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Filtros
+            </button>
+          </h5>
+        </div>
+    
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <input type="radio" id="todos" name="ocultar" value="ocultarNada">
+            <label for="html">Todos</label><br>
+            <input type="radio" id="perro1" name="ocultar" value="ocultarGato">
+            <label for="css">Perro</label><br>
+            <input type="radio" id="gato1" name="ocultar" value="ocultarPerro">
+            <label for="javascript">Gato</label>
+              
+          </div>
+        </div>
+      </div>
+      <div class="card">
+      
+       
+      </div>
+    </div>
+ <!-- NUEVA COMPRA-->
+
+    <div class="container">
+      
+      <div class="row">
+          <div class="col-8">
+              <div class="row" style="padding: 10px 0; margin: 0;">
+                  <div class="col-12">
+                      <div class="row">
+                          {% for i in productos %}
+                          <div class="col-12">
+                              <div class="card carrito" style="height: 10rem; width: 23rem; margin: 5px 0px;">
+                                  <div class="card-body">
+                                      <h5 class="card-title">{{i.nombre}}</h5>
+                                      {% if i.imagen %}
+                                      <img src="{{ i.imagen.url }}" alt="...">
+                                      {% else %}
+                                      {% endif %}
+                                      <p class="card-text">{{i.marca}}</p>
+                                      <p class="card-text">{{i.precio}}</p>
+                                      <a href="{% url 'Add' i.id %}" class="btn btn-primary">Agregar al carrito</a>
+
+                                  </div>
+                              </div>
+                          </div>
+                          {% endfor %}
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4">
+            {% include 'app/carrito.html' %}
+          </div>
+      </div>
+  </div>
+        <!-- CARDS -->
+        <h1 id="oferta_titulo">
+            Oferta!
+        </h1>    
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-4 ">
+                <div class="card mb-3">
+                  <img src="{% static 'media/comida-gato3.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card 1</h5>
+                    <p class="card-text">Oferta !Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="btn btn-primary">Leer más</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 ">
+                <div class="card mb-3">
+                  <img src="{% static 'media/comida-gato3.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card 2</h5>
+                    <p class="card-text">Oferta !Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="btn btn-primary">Leer más</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 ">
+                <div class="card mb-3">
+                  <img src="{% static 'media/comida-gato3.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card 3</h5>
+                    <p class="card-text">Oferta !Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="btn btn-primary">Leer más</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+        
+
+        <div class="footer-dark">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>Servicios</h3>
+                            <ul>
+                                <li><a href="#">Cuenta</a></li>
+                                <li><a href="#">Envios</a></li>
+                                <li><a href="#">Contactar</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>Sobre nosotros</h3>
+                            <ul>
+                                
+                                <li><a href="about_us">Equipo</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="col-md-6 item text">
+                            <h3>Dogline</h3>
+                            <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                        </div>
+                        
+                    </div>
+                    <p class="copyright">Dogline © 2023</p>
+                </div>
+            </footer>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+        
+        <script src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>
+</body>

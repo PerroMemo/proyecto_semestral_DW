@@ -28,6 +28,12 @@ class ProductoForm(ModelForm):
         model = Producto
         fields = "__all__"
 
+    def clean_imagen(self):
+        imagen = self.cleaned_data.get('imagen')
+        if not imagen:
+            return None
+        return imagen
+
 class RegistroForm(ModelForm):
     class Meta:
         model = Cliente

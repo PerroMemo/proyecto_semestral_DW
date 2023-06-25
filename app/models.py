@@ -13,11 +13,11 @@ class Marca(models.Model):
 
 class Producto(models.Model):
     id              = models.AutoField(primary_key=True)
-    nombre           = models.CharField(max_length=20)
+    nombre          = models.CharField(max_length=20)
     precio          = models.IntegerField()
     id_marca        = models.ForeignKey('Marca',on_delete=models.CASCADE, db_column='idMarca')  
-    stock           = models.CharField(max_length=4)
-    imagen          = models.ImageField(upload_to='app/db_img/')
+    stock           = models.IntegerField()
+    imagen          = models.ImageField(upload_to='app/static/media', blank=True, null=True)
 
     def __str__(self):
         return str(self.id) + " " + str(self.nombre)+" "+str(self.id_marca) 
@@ -52,8 +52,8 @@ class Empleado(models.Model):
     
 class Boleta(models.Model):
     id_boleta        = models.AutoField(primary_key=True    )
-    fecha = models.DateField(default=timezone.now)
-    id_producto        = models.ForeignKey('Producto',on_delete=models.CASCADE, db_column = 'id_producto')
+    fecha            = models.DateField(default=timezone.now)
+    id_producto      = models.ForeignKey('Producto',on_delete=models.CASCADE, db_column = 'id_producto')
     precio_total     = models.CharField(max_length=6)
 
     def __str__(self):

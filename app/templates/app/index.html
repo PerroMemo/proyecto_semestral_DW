@@ -132,10 +132,13 @@
                       <div class="row">
                           {% for i in productos %}
                           <div class="col-12">
-                              <div class="card carrito" style="height: 10rem; width: 23rem; margin: 5px 0px;">
+                              <div class="card carrito " style="height: 10rem; width: 15rem; margin-bottom: 120px; display: inline;">
                                   <div class="card-body">
                                       <h5 class="card-title">{{i.nombre}}</h5>
-                                      <img src="{{i.imagen.url}}" alt="...">
+                                      {% if i.imagen %}
+                                      <img class="imagen-producto " src="{{ i.imagen.url }}" alt="...">
+                                      {% else %}
+                                      {% endif %}
                                       <p class="card-text">{{i.marca}}</p>
                                       <p class="card-text">{{i.precio}}</p>
                                       <a href="{% url 'Add' i.id %}" class="btn btn-primary">Agregar al carrito</a>
@@ -153,104 +156,11 @@
           </div>
       </div>
   </div>
-    <div>
-        <section id="lista" class="contenido">
-            <div class="mostrador" id="mostrador">
-                <div class="fila">
-                    
-                    <div id="perro_fitFormula" class="item" onclick="cargar(this)">
-                        <div class="contenedor-foto">
-                            <img src="{% static 'media/comida-perro.jpg' %}" alt="">
-                        </div>
-                        <p class="descripcion">FIT FORMULA</p>
-                        <span class="precio">$ 1.300</span>
-                    </div>
-
-                    <div id="perro_dogChow" class="item" onclick="cargar(this)">
-                        <div class="contenedor-foto">
-                            <img src="{% static 'media/comida-perro2.jpg' %}" alt="">
-                        </div>
-                        <p class="descripcion">DOG CHOW</p>
-                        <span class="precio">$ 1.800</span>
-                    </div>
-
-                    <div id="gato_felinesPremium" class="item" onclick="cargar(this)">
-                        <div class="contenedor-foto">
-                            <img src="{% static 'media/comida-gato.jpg' %}" alt="">
-                        </div>
-                        <p class="descripcion">FELINES PREMIUM PARA ADULTOS</p>
-                        <span class="precio">$ 3.600</span>
-                    </div>
-
-                    <div id="gato_whiskasCarne" class="item" onclick="cargar(this)">
-                        <div class="contenedor-foto">
-                            <img src="{% static 'media/comida-gato2.jpg' %}" alt="">
-                        </div>
-                        <p class="descripcion">WHISKAS: SABOR CARNE</p>
-                        <span class="precio">$ 1.800</span>
-                    </div>
-                </div>
-
-                <div class="fila">
-                    <div id="perro_cannesAdulto" class="item" onclick="cargar(this)">
-                        <div class="contenedor-foto">
-                            <img src="{% static 'media/comida-perro3.jpg' %}" alt="">
-                        </div>
-                        <p class="descripcion">CANNES PARA ADULTOS: SABOR CARNE</p>
-                        <span class="precio">$ 130</span>
-                    </div>
-                    <div id="gato_purinaPollo" class="item" onclick="cargar(this)">
-                        <div class="contenedor-foto">
-                            <img src="{% static 'media/comida-gato3.jpg' %}" alt="">
-                        </div>
-                        <p class="descripcion">PURINA ONE: SABOR POLLO Y SALMON</p>
-                        <span class="precio">$ 2.000</span>
-                    </div>
-                    <div id="perro_cachupinCarne" class="item" onclick="cargar(this)">
-                        <div class="contenedor-foto">
-                            <img src="{% static 'media/comida-perro4.jpg' %}" alt="">
-                        </div>
-                        <p class="descripcion">CACHUPIN PARA ADULTOS: SABOR CARNE Y ARROZ</p>
-                        <span class="precio">$ 2.500</span>
-                    </div>
-                    <div id="gato_purinaChow" class="item" onclick="cargar(this)">
-                        <div class="contenedor-foto">
-                            <img src="{% static 'media/comida-gato4.jpg' %}" alt="">
-                        </div>
-                        <p class="descripcion">PURINA CAT CHOW</p>
-                        <span class="precio">$ 1.800</span>
-                    </div>
-
-                </div> 
-                
-            </div>
-            <!-- CONTENEDOR DEL ITEM SELECCIONADO -->
-            <div class="seleccion" id="seleccion">
-                <div class="cerrar" onclick="cerrar()">
-                    &#x2715
-                </div>
-                <div class="info">
-                    <img src="{% static 'media/comida-perro.jpg' %}" alt="" id="img">
-                    <h2 id="modelo">FIT FORMULA</h2>
-                    <p id="descripcion">Descripción Modelo 1</p>
-    
-                    <span class="precio" id="precio">$ 130</span>
-    
-                    <div class="fila">
-                        <a href="#" class="agregar-carrito" data-id="all">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <script src="{% static 'js/script.js' %}"></script>
-    
         <!-- CARDS -->
-
-        <h1 id="oferta_titulo">
+        <h1 id="oferta_titulo" style="padding-top: 5rem; padding-bottom: 1rem;">
             Oferta!
         </h1>    
-        <div class="container">
+        <div class="container" >
             <div class="row">
               <div class="col-sm-4 ">
                 <div class="card mb-3">
@@ -322,7 +232,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         
         <script src="{% static 'js/script.js' %}"></script>
-        <script src="{% static 'js/app.js' %}"></script>
     </body>
 </html>
 </body>

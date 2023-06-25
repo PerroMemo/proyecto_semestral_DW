@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 
 #Compra
 from app.Carrito import Carrito
@@ -208,24 +208,26 @@ def crud_productos(request):
 
 def productosAdd(request):
     print("estoy en controlador productosAdd...")
-    context={}
+    context = {}
 
     if request.method == "POST":
         print("controlador es un post...")
-        form = ProductoForm(request.POST)
-        if form.is_valid:
+        form = ProductoForm(request.POST, request.FILES)
+        if form.is_valid():
             print("estoy en agregar, is_valid")
             form.save()
 
-            #limpiar form
-            form=ProductoForm()
+            form = ProductoForm()  # Limpiar form
 
-            context={'mensaje':"Ok, datos grabados...","form":form}
-            return render(request,"app/productos_add.html",context)
+            context = {'mensaje': "Ok, datos grabados...", "form": form}
+            return render(request, "app/productos_add.html", context)
+        else:
+            context = {'form': form}
+            return render(request, "app/productos_add.html", context)  
     else:
         form = ProductoForm()
-        context={'form':form}
-        return render(request,"app/productos_add.html",context)
+        context = {'form': form}
+        return render(request, "app/productos_add.html", context)
     
 def productos_del(request, pk):
     mensajes=[]

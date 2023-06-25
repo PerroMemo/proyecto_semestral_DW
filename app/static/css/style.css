@@ -404,3 +404,9 @@ table .alert .alert-primary {
   max-width: 1200px;
 }
 
+.imagen-producto {
+  max-width: 40%;
+  max-height: 40%;
+  object-fit: contain;
+}
+

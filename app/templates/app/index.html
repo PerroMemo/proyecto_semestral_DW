@@ -32,41 +32,42 @@
 </div>
     <!-- Modales -->
     <div id="modal1" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Redirección a otra pagina</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Sera redirigido a la pagina de donaciones ¿Estas seguro de que quiere salir?</p>
-            </div>
-            <div class="modal-footer">
-              <button id="ir" type="button" class="btn btn-primary">Ir</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Quedarse</button>
-            </div>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Redirección a otra pagina</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Sera redirigido a la pagina de donaciones ¿Estas seguro de que quiere salir?</p>
+          </div>
+          <div class="modal-footer">
+            <button id="ir" type="button" class="btn btn-primary">Ir</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Quedarse</button>
           </div>
         </div>
       </div>
-
-      <div id="modal2" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Perro sorpresa</h5>
-             
-            </div>
-            <div class="modal-body">
-              <img class="img-fluid perro_sorpresa" src="{% static 'media/perro.jpg' %}" alt="#">
-            </div>
-            <div class="modal-footer">
-            </div>
+    </div>
+    <div>
+    
+    <div id="modal2" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Perro sorpresa</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <img class="img-fluid perro_sorpresa" src="{% static 'media/perro.jpg' %}" alt="#">
+          </div>
+          <div class="modal-footer">
           </div>
         </div>
       </div>
-
+    </div>
+    
     <!--Carrusel-->    
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -230,7 +231,6 @@
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-        
         <script src="{% static 'js/script.js' %}"></script>
     </body>
 </html>

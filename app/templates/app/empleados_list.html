@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/crudStyle.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+      <h1>Editar Empleados</h1>
+      <br><br>
+  
+      <a href="{% url 'empleadosAdd' %}" class="button">Agregar</a>
+  
+      <div id="idMensajes" class="mensaje-table">
+        {% if mensaje %}
+        <table>
+          <tr>
+            <td class="success">
+              {{ mensaje }}
+            </td>
+          </tr>
+        </table>
+        {% endif %}
+      </div>
+  
+      <table class="crud-table">
+        {% if empleados %}
+        <thead>
+          <tr>
+            <th>Empleado</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in empleados %}
+          <tr>
+            <td>{{ x.nombre }}</td>
+            <td><a href="{% url 'empleados_del' pk=x.rut %}" class="button button-secondary">Eliminar</a></td>
+            <td><a href="{% url 'empleados_edit' pk=x.rut %}" class="button button-secondary">Modificar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        {% endif %}
+      </table>
+    </div>
+  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#idMensajes").delay(2000).fadeOut("slow");
+        });
+    </script>
+</body>
+</html>

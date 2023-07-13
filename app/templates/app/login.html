@@ -1,0 +1,139 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/mail.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/phone.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    
+
+    <title>Login</title>
+  </head>
+
+  <body>
+    <!-- Titulo-->
+    <div  class="container-fluid">
+      <img class="icon" src="{% static 'media/Diseño sin título.png' %}" alt="#">
+      <span class="titulo">Todo para tu mascota</span>
+            
+    </div>    
+    <!-- Modal -->
+    <div id="modal2" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Perro sorpresa</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <img class="img-fluid perro_sorpresa" src="{% static 'media/perro.jpg' %}" alt="#">
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="modal1" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Redirección a otra pagina</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Sera redirigido a la pagina de donaciones ¿Estas seguro de que quiere salir?</p>
+          </div>
+          <div class="modal-footer">
+            <button id="ir" type="button" class="btn btn-primary">Ir</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Quedarse</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+        <ul>
+          <li><a href="index">Pagina principal</a></li>
+          <li><a id="donar" href="#">Donativos</a></li>
+          <li><a id="oferta" href="#">Super Ofertas</a></li>
+          <li style="float:right"><a href="registro">Registro</a></li>
+          <li style="float:right"><a href="login">Ingreso</a></li>
+
+        </ul>
+    </div>    
+
+        <section class="vh-100 gradient-custom">
+            <div class="container py-5 h-100">
+              <div class="row justify-content-center align-items-center h-100">
+                <div class="col-12 col-lg-9 col-xl-7">
+                  <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                      <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Ingreso</h3>
+          
+                        <form id="login-form" action="" method="post">
+                          <div>
+                            <label for="email">Correo electrónico:</label>
+                            <input type="email" name="email" id="email">
+                          </div>
+                          <div>
+                            <label for="password">Contraseña:</label>
+                            <input type="password" name="password" id="password">
+                          </div>
+                          <div>
+                            <input type="submit" value="Iniciar sesión">
+                          </div>
+                        </form>
+                        <button id="volver">Volver</button>
+                        
+                        
+        </section>
+        
+            <div class="footer-dark">
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3 item">
+                                <h3>Servicios</h3>
+                                <ul>
+                                    <li><a href="#">Cuenta</a></li>
+                                    <li><a href="#">Envios</a></li>
+                                    <li><a href="#">Contactar</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 col-md-3 item">
+                                <h3>Sobre nosotros</h3>
+                                <ul>
+                                    
+                                  <li><a href="../vista/about_us.html">Equipo</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="col-md-6 item text">
+                                <h3>Dogline</h3>
+                                <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                            </div>
+                            
+                        </div>
+                        <p class="copyright">Dogline © 2023</p>
+                    </div>
+                </footer>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+            <script src="{% static 'js/script.js' %}"></script>
+          </body>
+    
+    
+    </html>
+    </body>

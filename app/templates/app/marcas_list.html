@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/crudStyle.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+      <h1>Editar Marca</h1>
+      <br><br>
+  
+      <div id="idMensajes" class="mensaje-table">
+        {% if mensaje %}
+        <table>
+          <tr>
+            <td class="success">
+              {{ mensaje }}
+            </td>
+          </tr>
+        </table>
+        {% endif %}
+      </div>
+  
+      <table class="crud-table">
+        {% if marcas %}
+        <thead>
+          <tr>
+            <th>Marca</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in marcas %}
+          <tr>
+            <td>{{ x.nombre }}</td>
+            <td><a href="{% url 'marca_del' pk=x.id_marca %}" class="button button-secondary">Eliminar</a></td>
+            <td><a href="{% url 'marca_edit' pk=x.id_marca %}" class="button button-secondary">Modificar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        {% endif %}
+      </table>
+  
+      <br><br>
+      <a href="{% url 'marcaAdd' %}" class="button">Agregar</a>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#idMensajes").delay(2000).fadeOut("slow");
+        });
+    </script>
+</body>
+</html>

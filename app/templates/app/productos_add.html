@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/crudStyle.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+      <h2>Formulario CRUD para Productos</h2>
+      <form action="productosAdd" method="POST">
+        {% csrf_token %}
+        <table class="form-table">
+          {{ form.as_table }}
+          <tr>
+            <td colspan="2" style="text-align: center;">
+              <input type="submit" name="opcion" value="Agregar" class="button">
+            </td>
+          </tr>
+        </table>
+      </form>
+      <br><br>
+  
+      <div id="idMensajes" class="mensaje-table">
+        {% if mensaje %}
+        <table>
+          <tr>
+            <td class="success">
+              {{ mensaje }}
+            </td>
+          </tr>
+        </table>
+        {% endif %}
+      </div>
+  
+      <br>
+      <a href="{% url 'crud_productos' %}" class="button button-secondary">Volver</a>
+      <br>
+    </div>
+  </body>
+  
+</html>
